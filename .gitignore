@@ -1,0 +1,4 @@
+server
+site-keys.dat
+*.o
+.DS_Store

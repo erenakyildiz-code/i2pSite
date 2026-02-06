@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Whispers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>NEON WHISPERS</h1>
+            <p>Invisible Internet Relay</p>
+        </header>
+
+        <hr>
+
+        <main>
+            <!-- Chat Section -->
+            <section class="chat-section">
+                <h3>Anonymous Chat</h3>
+                <div class="chat-box">
+                    <div class="message system">
+                        <span class="user">[SYSTEM]</span>
+                        <span class="text">Welcome to the invisible network.</span>
+                    </div>
+                    <!-- CHAT_MESSAGES -->
+                </div>
+
+                <form class="chat-controls" action="/chat" method="POST">
+                    <input type="text" name="username" placeholder="Alias" maxlength="20">
+                    <input type="text" name="message" placeholder="Message..." maxlength="280" required>
+                    <button type="submit">SEND</button>
+                </form>
+            </section>
+        </main>
+
+        <hr>
+
+        <footer>
+            <p>Pure C Server (Segfaults probably exist, please don't fuck my computer) | No JavaScript | I2P Hidden
+                Service</p>
+        </footer>
+    </div>
+</body>
+
+</html>
