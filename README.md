@@ -12,6 +12,17 @@
 
 ---
 
+# 🧅 LIVE I2P ADDRESS
+
+**Address:** `http://rxd3tl6krykhnbhfxulmnhps6nq7pmbgqlfmwcf4d5srp3dvtq6q.b32.i2p`
+
+**How to Access:**
+You **cannot** open this link in a normal browser. You must access it through the **I2P Network**.
+1.  Install and run an I2P router (like `i2pd` or `Java I2P`).
+2.  Configure your browser to use the I2P HTTP Proxy (usually `http://127.0.0.1:4444`).
+
+---
+
 # Neon Whispers (I2P Hidden Service)
 
 A lightweight, anonymous web chat hosted on the Invisible Internet Project (I2P).
