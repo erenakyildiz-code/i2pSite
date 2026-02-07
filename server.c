@@ -81,12 +81,13 @@ void html_escape(char *dst, const char *src, size_t dst_size) {
   dst[n] = '\0';
 }
 
-void handle_client(int client_socket) {
+void *handle_client(void *arg) {
+  int client_socket = (long)arg;
   char buffer[BUFFER_SIZE];
   int read_size = recv(client_socket, buffer, BUFFER_SIZE - 1, 0);
   if (read_size < 0) {
     close(client_socket);
-    return;
+    return NULL;
   }
   buffer[read_size] = '\0';
 
@@ -100,7 +101,7 @@ void handle_client(int client_socket) {
     char *response = "HTTP/1.1 403 Forbidden\r\n\r\nForbidden";
     send(client_socket, response, strlen(response), 0);
     close(client_socket);
-    return;
+    return NULL;
   }
 
   if (strcmp(method, "POST") == 0 && strcmp(path, "/chat") == 0) {
@@ -175,7 +176,7 @@ void handle_client(int client_socket) {
     // Keep socket open briefly to ensure flush (simple hack) or just shutdown
     shutdown(client_socket, SHUT_WR);
     close(client_socket);
-    return;
+    return NULL;
   }
 
   // Serve Files (SSR for index.html)
@@ -241,6 +242,7 @@ void handle_client(int client_socket) {
     free(html);
   }
   close(client_socket);
+  return NULL;
 }
 
 #define RATE_LIMIT_WINDOW 1 // seconds
@@ -305,8 +307,7 @@ int main() {
       // usually but struct is better)
       // Warning: handling race on client_sock processing in heavy load, but
       // fine here
-      pthread_create(&t, NULL, (void *(*)(void *))handle_client,
-                     (void *)(long)client_sock);
+      pthread_create(&t, NULL, handle_client, (void *)(long)client_sock);
       pthread_detach(t);
     }
   }
