@@ -14,7 +14,7 @@
 
 # 🧅 LIVE I2P ADDRESS
 
-**Address:** `http://rxd3tl6krykhnbhfxulmnhps6nq7pmbgqlfmwcf4d5srp3dvtq6q.b32.i2p`
+**Address:** `http://qn457jumkqxbsudwq6ajsu7j23f32qhn2kn47gpy5ti236kyy5nq.b32.i2p`
 
 **How to Access:**
 You **cannot** open this link in a normal browser. You must access it through the **I2P Network**.
